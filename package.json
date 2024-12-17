@@ -1,0 +1,33 @@
+{
+  "name": "ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@fontsource/ballet": "^5.1.0",
+    "@iconify/react": "^5.0.2",
+    "@mui/icons-material": "^6.1.6",
+    "@mui/material": "^6.1.6",
+    "next": "15.0.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-multi-carousel": "^2.8.5",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.13.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5"
+  }
+}

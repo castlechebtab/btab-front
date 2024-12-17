@@ -1,0 +1,1 @@
+export * from './wrist-watch-collection'

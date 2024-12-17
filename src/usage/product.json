@@ -1,0 +1,63 @@
+{
+    "GIFTS": [
+      {
+        "imageUrl": "/images/crew_jumper.webp",
+        "title": "771 Crew Neck Jumper Fleece",
+        "price": 10
+      },
+      {
+        "imageUrl": "/images/crew_jumper.webp",
+        "title": "772 Crew Neck Jumper Fleece",
+        "price": 12
+      },
+      {
+        "imageUrl": "/images/crew_jumper.webp",
+        "title": "773 Crew Neck Jumper Fleece",
+        "price": 15
+      }
+    ],
+    "BRANDS": [
+      {
+        "imageUrl": "/images/crew_jumper.webp",
+        "title": "771 Crew Neck Jumper Fleece",
+        "price": 36.95
+      },
+      {
+        "imageUrl": "/images/singlet.jfif",
+        "title": "227 Adult Singlet",
+        "price": 24.95
+      },
+      {
+        "imageUrl": "/images/koala_foil.jfif",
+        "title": "BGY Koala Foil - Ladies Slim Fit T-shirt",
+        "price": 21.5
+      },
+      {
+        "imageUrl": "/images/191213.webp",
+        "title": "227 Adult Singlet",
+        "price": 24.95
+      },
+      {
+        "imageUrl": "/images/Ben_boys_shorts_blue_mnnt-l1.jpg",
+        "title": "BGY Koala Foil - Ladies Slim Fit T-shirt",
+        "price": 21.5
+      }
+    ],
+    "STORIES": [
+      {
+        "imageUrl": "/images/story/1.png",
+        "title": "KIDS Christmas Collection",
+        "description": "Discover the CR25 KIDS Collection. This glittering edit encapsulates holiday season at its best. Expect princess-worthy dresses in layers of fluffy tulle, delicately embroidered florals and sparkling shooting stars."
+      },
+      {
+        "imageUrl": "/images/story/2.png",
+        "title": "Catch a Falling Star Collection",
+        "description": "Introducing \"Catch a Falling Star\" — our new glittering Christmas collection encapsulating the mood of the Ziegfeld Follies: a group of decadent showgirls from the early 1900’s through to the 1940’s."
+      },
+      {
+        "imageUrl": "/images/story/3.png",
+        "title": "The Autumn Leaves Collection",
+        "description": "The new Needle & Thread Autumn-Winter ‘24 collection is an ode to the beauty of autumn. Inspired by Emily Bronte’s poem \"Fall leaves fall\", this season takes on a truly autumnal feel with a rich, sophisticated colour palette of warm tones — caramel, burnt copper, dusky rose and cinnamon."
+      }
+    ]
+  }
