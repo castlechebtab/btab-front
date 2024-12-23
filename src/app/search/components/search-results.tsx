@@ -4,6 +4,8 @@ import { Pagination } from "@mui/material";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Rating } from "@mui/material";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';  // 添加这行
+
 
 interface SearchResultsProps {
   results: any[];
@@ -23,6 +25,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [showDropdown, setShowDropdown] = useState(false);  // 添加下拉菜单状态
+  const router = useRouter();  // 添加这行
 
   // 下拉菜单选项
   const sortOptions = [
@@ -236,8 +239,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               sx={{ 
                 width: 300, 
                 flex: '0 0 auto',
-                marginBottom: 2
+                marginBottom: 2,
+                cursor: 'pointer'  // 添加鼠标指针样式
               }}
+              onClick={() => router.push(`/product1?id=${result.id}`)}  // 添加点击事件
             >
               <CardMedia
                 component="img"
