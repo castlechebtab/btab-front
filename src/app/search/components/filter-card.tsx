@@ -210,12 +210,21 @@ const FilterIcon = () => (
   </svg>
 );
 
+// 添加一个类型定义
+interface ExpandedSections {
+  [key: string]: boolean;  // 允许字符串索引
+  category: boolean;
+  color: boolean;
+  size: boolean;
+  dressStyle: boolean;
+}
+
 const FilterCard: React.FC<FilterCardProps> = ({ filters, setFilters }) => {
-  const [expanded, setExpanded] = useState({
-    category: true,
-    color: true,
-    size: true,
-    dressStyle: true
+  const [expanded, setExpanded] = useState<ExpandedSections>({
+    category: false,
+    color: false,
+    size: false,
+    dressStyle: false
   });
 
   const handleFilterChange = (name: string, value: string) => {
