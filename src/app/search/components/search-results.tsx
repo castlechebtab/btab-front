@@ -4,6 +4,7 @@ import { Pagination } from "@mui/material";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Rating } from "@mui/material";
 import Image from 'next/image';
+import Link from 'next/link'; // 导入 Link 组件
 
 interface SearchResultsProps {
   results: any[];
@@ -231,12 +232,22 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       >
         {(showAll ? results : results.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE))
           .map((result) => (
+          <Link 
+            href={`/product${result.id < 6 ? result.id : 1}?id=${result.id}`} // 使用 product1 路由，并传递 id 参数
+            key={result.id}
+            style={{ textDecoration: 'none' }} // 移除默认的下划线
+          >
             <Card 
               key={result.id} 
               sx={{ 
                 width: 300, 
                 flex: '0 0 auto',
-                marginBottom: 2
+                marginBottom: 2,
+                cursor: 'pointer', // 添加鼠标悬停效果
+                  transition: 'transform 0.2s',
+                  '&:hover': {
+                    transform: 'scale(1.03)'
+                  }
               }}
             >
               <CardMedia
@@ -267,7 +278,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                 </Typography>
               </CardContent>
             </Card>
-          ))}
+         
+          </Link> ))}
       </Box>
 
       {!showAll && (
