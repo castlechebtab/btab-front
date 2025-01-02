@@ -1,20 +1,32 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Button, ButtonGroup, Slider } from '@mui/material';
 
-interface FilterCardProps {
-  filters: {
-    category: string;
-    color: string;
-    size: string;
-    dressStyle: string;
-  };
-  setFilters: React.Dispatch<React.SetStateAction<{
-    category: string;
-    color: string;
-    size: string;
-    dressStyle: string;
-  }>>;
+// interface FilterCardProps {
+//   filters: {
+//     category: string;
+//     color: string;
+//     size: string;
+//     dressStyle: string;
+//   };
+//   setFilters: React.Dispatch<React.SetStateAction<{
+//     category: string;
+//     color: string;
+//     size: string;
+//     dressStyle: string;
+//   }>>;
+// }
+interface Filters {
+  category: string;
+  price: string;
+  color: string;
+  size: string;
+  dressStyle: string;
 }
+interface FilterCardProps {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+}
+
 
 const categoryMapping: { [key: string]: string } = {
   'T-SHIRTS': 'tshirts',
@@ -209,6 +221,13 @@ const FilterIcon = () => (
     />
   </svg>
 );
+interface ExpandedSections {
+  category: boolean;
+  color: boolean;
+  size: boolean;
+  dressStyle: boolean;
+}
+
 
 // 添加一个类型定义
 interface ExpandedSections {
@@ -236,12 +255,13 @@ const FilterCard: React.FC<FilterCardProps> = ({ filters, setFilters }) => {
     }));
   };
 
-  const toggleExpand = (section: string) => {
+  const toggleExpand = (section: keyof ExpandedSections) => {
     setExpanded(prev => ({
       ...prev,
       [section]: !prev[section]
     }));
   };
+
 
   return (
     <Box

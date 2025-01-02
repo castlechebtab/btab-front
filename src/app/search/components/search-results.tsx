@@ -4,12 +4,10 @@ import { Pagination } from "@mui/material";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Rating } from "@mui/material";
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';  // 添加这行
-
 
 interface SearchResultsProps {
   results: any[];
-  setShowFilter: (show: boolean) => void;
+  setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
   showFilter: boolean;
   sortType: string;
   setSortType: (type: string) => void;
@@ -25,7 +23,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [showDropdown, setShowDropdown] = useState(false);  // 添加下拉菜单状态
-  const router = useRouter();  // 添加这行
+  const [hoveredOption, setHoveredOption] = useState<string | null>(null);
 
   // 下拉菜单选项
   const sortOptions = [
@@ -182,16 +180,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                     setShowDropdown(false);
                     setCurrentPage(1);
                   }}
+                  onMouseEnter={() => setHoveredOption(option)}
+                  onMouseLeave={() => setHoveredOption(null)}
                   style={{
                     padding: '8px 16px',
                     cursor: 'pointer',
                     fontSize: '14px',
                     fontFamily: 'Montserrat',
                     color: sortType === option ? '#2196F3' : '#333',
-                    backgroundColor: sortType === option ? '#F5F5F5' : 'white',
-                    ':hover': {
-                      backgroundColor: '#F5F5F5'
-                    }
+                    backgroundColor: sortType === option || hoveredOption === option ? '#F5F5F5' : 'white',
                   }}
                 >
                   {option}
@@ -239,10 +236,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               sx={{ 
                 width: 300, 
                 flex: '0 0 auto',
-                marginBottom: 2,
-                cursor: 'pointer'  // 添加鼠标指针样式
+                marginBottom: 2
               }}
-              onClick={() => router.push(`/product1?id=${result.id}`)}  // 添加点击事件
             >
               <CardMedia
                 component="img"
