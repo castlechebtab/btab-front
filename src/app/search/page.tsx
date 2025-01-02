@@ -4,6 +4,14 @@ import SearchResults from "./components/search-results";
 import { mockProducts } from "./components/mock-data";
 import FilterCard from "./components/filter-card";
 
+interface Filters {
+  category: string;
+  price: string;
+  color: string;
+  size: string;
+  dressStyle: string;
+}
+
 const SearchPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filters, setFilters] = useState({
