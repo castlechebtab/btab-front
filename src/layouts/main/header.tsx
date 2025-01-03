@@ -234,7 +234,7 @@ export function Header() {
             color: "black",
           }}
         >
-          Btab Corp
+          Brand Name
         </Typography>
 
         {/* Right Section: Icons */}

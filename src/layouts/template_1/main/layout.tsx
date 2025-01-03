@@ -234,7 +234,7 @@ export function MainLayout1({ sx, children }: MainLayout1Props) {
               </Box>
             </Box>
             <Typography fontFamily={"Ballet"} color="#B86678" fontSize={32}>
-              Btab Corp
+            Brand Name
             </Typography>
           </Box>
 
