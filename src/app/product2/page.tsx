@@ -10,6 +10,14 @@ import {
     CardContent,
     Container,
     Grid,
+    Breadcrumbs,
+    Link,
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem,
+    ButtonGroup,
+    TextField,
   } from "@mui/material";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -39,7 +47,10 @@ const BRANDS = [
       price: 21.5,
     },
   ];
+import { useState } from 'react';
+
 export default function Product2Page() {
+  const [size, setSize] = useState('M');
   const settings = {
     dots: true,
     infinite: true,
@@ -51,8 +62,17 @@ export default function Product2Page() {
   };
 
   return (
-    <Box>
-    <Grid container spacing={3}>
+    <Box style={{ padding: '2%' }}>
+      <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
+        <Link color="inherit" href="/">
+          Home
+        </Link>
+        <Link color="inherit" href="/product">
+          Products
+        </Link>
+        <Typography color="text.primary">Product Details</Typography>
+      </Breadcrumbs>
+      <Grid container spacing={3}>
       <Grid item xs={12} md={6}>
         <Paper sx={{ p: 3 }}>
           <Typography variant="h4" gutterBottom>
@@ -90,16 +110,48 @@ export default function Product2Page() {
           <Typography variant="h5" gutterBottom>
             Product Information
           </Typography>
-          <Typography variant="h4" color="primary" sx={{ my: 2 }}>
+          <Typography variant="h4" color="black" sx={{ my: 2 }}>
             $ 999.00
           </Typography>
+          <FormControl fullWidth sx={{ mb: 2 }}>
+            <InputLabel>Size</InputLabel>
+            <Select
+              label="Size"
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
+            >
+              <MenuItem value="XS">XS</MenuItem>
+              <MenuItem value="S">S</MenuItem>
+              <MenuItem value="M">M</MenuItem>
+              <MenuItem value="L">L</MenuItem>
+              <MenuItem value="XL">XL</MenuItem>
+            </Select>
+          </FormControl>
+          <Box sx={{ mb: 2 }}>
+            <Typography variant="subtitle1" sx={{ mb: 1 }}>Color</Typography>
+            <ButtonGroup>
+              <Button sx={{ backgroundColor: '#000000', '&:hover': { backgroundColor: '#333333' } }}></Button>
+              <Button sx={{ backgroundColor: '#ffffff', border: '1px solid #ccc', '&:hover': { backgroundColor: '#f5f5f5' } }}></Button>
+              <Button sx={{ backgroundColor: '#ff0000', '&:hover': { backgroundColor: '#cc0000' } }}></Button>
+              <Button sx={{ backgroundColor: '#0000ff', '&:hover': { backgroundColor: '#0000cc' } }}></Button>
+            </ButtonGroup>
+          </Box>
           <Typography variant="body1" sx={{ mb: 3 }}>
             Detailed product description goes here...
           </Typography>
+          <TextField
+            label="Quantity"
+            type="number"
+            defaultValue={1}
+            inputProps={{ min: 1, max: 10 }}
+            fullWidth
+            sx={{ mb: 2 }}
+          />
           <Button 
             variant="contained" 
             startIcon={<ShoppingCartIcon />}
             size="large"
+            sx={{ backgroundColor: 'black' }}
             onClick={() => {
               // Add to cart logic here
               alert('Added to cart!');
