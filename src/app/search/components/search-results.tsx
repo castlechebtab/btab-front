@@ -233,7 +233,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         {(showAll ? results : results.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE))
           .map((result) => (
           <Link 
-            href={`/product${result.id < 6 ? result.id : 1}?id=${result.id}`} // 使用 product1 路由，并传递 id 参数
+            href={`/product${result.id < 7 ? result.id : 1}?id=${result.id}`} // 使用 product1 路由，并传递 id 参数
             key={result.id}
             style={{ textDecoration: 'none' }} // 移除默认的下划线
           >
